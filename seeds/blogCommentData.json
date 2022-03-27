@@ -1,0 +1,18 @@
+[
+  {
+    "blog_comment": "Music Near Me sucks",
+    "blog_id": 1,
+    "user_id": 1
+
+  },
+  {
+    "blog_comment": "The Ultimate Tech Quiz was made by steve",
+    "blog_id": 2,
+    "user_id": 2
+  },
+  {
+    "blog_comment": "Roll 'Em Up was hard",
+    "blog_id": 3,
+    "user_id": 3
+  }
+]
