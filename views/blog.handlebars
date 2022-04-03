@@ -1,9 +1,10 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
+  <h2>{{blog_title}}</h2>
 
-  <p>{{description}}</p>
+  <p>{{blog_description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>
-    <button class="btn btn-primary">Submit Comment</button>
+    <button class="btn btn-primary" id="comment-btn">Submit Comment</button>
   </p>
 </div>
+<script src="/js/comment.js"></script>
