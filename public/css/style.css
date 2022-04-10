@@ -2,15 +2,47 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   line-height: 1;
+  background-color: beige;
+  color: black;
 }
 
-.navbar {
-  background-color: blue;
-  color: aliceblue;
+.cust-header {
+  background-color: rgba(146, 98, 98, 0.23);
+  color: rgb(69, 66, 66);
+  text-align: left;
+  align-items: left;
+}
+header a {
+  color: rgb(69, 66, 66);
+}
+
+header-btn {
+  color: rgb(69, 66, 66);
+  }
+
+.tech-blog-card {
+  width: auto;
+}
+
+nav {
+  display: inline-flexbox;
+  float: left;
+  width: fit-content;
+  font-size: 1rem;
+}
+
+.blog-list {
+  border: .1rem solid black;
 }
 
 textarea {
   background: transparent;
+  resize: both;
+  width: 100%;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .blog-title {
@@ -18,7 +50,7 @@ textarea {
 }
 
 .jumbotron-custom {
-  text-align: center;
+  text-align: left;
   background-color: lightgrey;
   color: black;
   border-radius: 0; 

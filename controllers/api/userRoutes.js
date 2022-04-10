@@ -45,6 +45,7 @@ router.post('/login', async (req, res) => {
     });
 
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -54,6 +55,7 @@ router.post('/logout', (req, res) => {
     req.session.destroy(() => {
       res.status(204).end();
     });
+
   } else {
     res.status(404).end();
   }

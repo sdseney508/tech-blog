@@ -1,10 +1,37 @@
 <div class="text-center">
-  <h2>{{blog_title}}</h2>
+  <h2 id="blog-title">{{blog_title}}</h2>
 
   <p>{{blog_description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <button class="btn btn-primary" id="comment-btn">Submit Comment</button>
-  </p>
+  <h4>Comments:</h4>
+  {{#each blogcomments as |blogcomment| }}
+  <div class="flex-row ">
+    <div class="flex-column justify-space-around">
+      <div class="blog-title">
+        <h3>
+          {{blog_comment}}
+          {{!-- double check how to reference a user_id as part of a query --}}
+          Posted by {{blogcomment.user.name}}
+        </h3>
+      </div>
+      <div class="blog-body">
+        <p>
+          {{blog.blog_description}}
+        </p>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+
+  <form class="form new-comment-form">
+    <div class="form-group">
+      <div class="b_id invisible" id="b_id">{{id}}</div>
+      <label for="comment-desc">Create A New Comment:</label>
+      <textarea class="form-input" id="comment-description" name="comment-description"></textarea>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" id="comment-btn">Submit Comment</button>
+    </div>
+  </form>
 </div>
 <script src="/js/comment.js"></script>

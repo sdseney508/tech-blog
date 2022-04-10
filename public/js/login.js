@@ -1,6 +1,5 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
-
   // Collect values from the login form
   const email = document.querySelector('#email').value.trim();
   const password = document.querySelector('#password').value.trim();
@@ -17,7 +16,7 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the homepage but with a logout button instead of login
       document.location.replace('/');
     } else {
-      alert(response.statusText);
+      alert('Something went wrong.  Please try again or contact an administrator');
     }
   }
 };
