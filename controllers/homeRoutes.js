@@ -60,6 +60,38 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
+router.get('/edit_blog/:id', async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: BlogComment,
+          include: [
+            {
+              model: User,
+              attributes: ['name']
+            }
+          ]
+        },
+      ],
+    });
+
+    const blog = blogData.get({ plain: true });
+    // console.log(blog.blogcomments[req.params.id].user);
+    res.render('edit_blog', {
+      ...blog,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {

@@ -1,44 +1,64 @@
-<div class="row">
-  <div class="col-auto">
+<div class='row'>
+  <div class='col-auto'>
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
+<div class='d-flex flex-column mt-4'>
+  <div class='col-md-12'>
     <h3>Create a New Blog</h3>
 
-    <form class="form new-blog-form">
-      <div class="form-group pb-1">
-        <label for="blog-name" class="col-md-3 col-sm-10">Blog Title:</label>
-        <input class="form-input col-md-8" type="text" id="blog-name" name="blog-name" />
+    <form class='form new-blog-form'>
+      <div class='form-group pb-1'>
+        <label for='blog-name' class='col-md-12 col-sm-12'>Blog Title:</label>
+        <textarea
+          class='form-input col-md-12 col-sm-12'
+          id='blog-name'
+          name='blog-name'
+        ></textarea>
       </div>
-      <div class="form-group pb-1">
-        <label for="blog-desc" class="col-md-3 col-sm-10">Description:</label>
-        <textarea class="form-input col-md-8" id="blog-desc" name="blog-desc"></textarea>
+      <div class='form-group pb-1'>
+        <label for='blog-desc' class='col-md-12 col-sm-12'>Description:</label>
+        <textarea
+          class='form-input col-md-12 col-sm-12'
+          id='blog-desc'
+          name='blog-desc'
+        ></textarea>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary" id="submit-btn">Create</button>
+      <div class='form-group'>
+        <button
+          type='submit'
+          class='btn btn-primary'
+          id='submit-btn'
+        >Create</button>
       </div>
     </form>
   </div>
 
   {{#if blogs.length}}
-  <div class="col-md-6">
-    <h3>Current Blogs:</h3>
+    <div class='d-flex flex-row col-md-12'>
+      <div class='flex-column col-sm-12 col-md-12 justify-space-between'>
+        <div>
+          <h4>Current Blogs:</h4>
+        </div>
 
-    {{#each blogs as |blog|}}
-    <div class="row mb-2 blog-list">
-      <div class="col-md-8">
-        <h4><a href="/blog/{{blog.id}}">{{blog_title}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">Delete</button>
+        {{#each blogs as |blog|}}
+          <div class='d-flex flex-row mb-2 blog-list justify-content-between'>
+            <div class="flex-column">
+
+              <h5><a
+                  href='/edit_blog/{{blog.id}}'
+                  id='{{blog.id}}'
+                >{{blog_title}}</a></h5>
+            </div>
+            <div class="flex-column">
+              <p>{{format_date date_created}}</p>
+            </div>
+          </div>
+        {{/each}}
       </div>
     </div>
-    {{/each}}
-  </div>
   {{/if}}
 </div>
 
-<script src="./js/blog.js"></script>
+<script src='./js/blog.js'></script>

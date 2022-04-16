@@ -3,12 +3,16 @@
   <div class="flex-column justify-space-around">
     {{#each blogs as |blog| }}
     <div class="card blog-card">
-      <div class="card-header">
-        <h3>
+      <div class="card-header d-flex flex-row justify-content-between">
+        <div>
           <a href="/blog/{{blog.id}}">{{blog.blog_title}}</a>
-          {{!-- double check how to reference a user_id as part of a query --}}
-          Posted by {{blog.user_id}} on {{format_date date_created}}
-        </h3>
+        </div>
+        {{!-- double check how to reference a user_id as part of a query --}}
+        <div>
+          Posted by {{user.name}} on {{format_date date_created}}
+
+        </div>
+
       </div>
       <div class="card-body">
         <p>

@@ -15,12 +15,14 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
-router.put('/', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const updatedBlog = await Blog.update({
             ...req.body,
             user_id: req.session.user_id,
-        });
+        },
+          {where: {id: req.params.id} } 
+            );
 
         res.status(200).json(updatedBlog);
     } catch (err) {
