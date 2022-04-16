@@ -17,7 +17,7 @@ const updatePostHandler = async (event) => {
     });
 
     if (response.ok) {
-      location.reload;
+      location.replace(`/edit_blog/${blog_id}`);
     } else {
       alert('Failed to update blog post');
     }
